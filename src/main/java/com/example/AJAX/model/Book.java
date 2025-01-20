@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Date;
 
@@ -21,7 +22,7 @@ public class Book {
     private String title;
 
     @Column(nullable = false)
-    private int release_date;
+    private int number;
 
     @Column(nullable = false)
     private String author;
@@ -46,12 +47,12 @@ public class Book {
         this.title = title;
     }
 
-    public int getReleaseDate() {
-        return release_date;
+    public int getNumber() {
+        return number;
     }
 
-    public void setReleaseDate(int release_date) {
-        this.release_date = release_date;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getAuthor() {
