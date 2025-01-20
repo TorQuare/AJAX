@@ -1,31 +1,93 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Lista produktów</title>
+    <title>Lista książek</title>
 </head>
+<style>
+    body {
+    height: 40vh;
+    width: 100%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    color: #005073;
+    font-family: Arial, sans-serif;
+}
+
+.box h1 {
+    font-size: 50px;
+    margin: 0 0 1rem 0;
+}
+
+table {
+    border-collapse: collapse;
+    border: 3px solid rgb(9, 38, 42);
+    border-radius: 5px;
+    width: 50%;
+    
+}
+
+table th, table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-color: #EBF5FC;
+    border-radius: 5px;
+}
+
+a {
+    color: #005073;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0077a5;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px; /* Wewnętrzne marginesy */
+    font-size: 16px; 
+    color: #ffffff; 
+    background-color: #005073; 
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Usunięcie podkreślenia */
+    cursor: pointer; 
+    transition: background-color 0.3s ease; /* Efekt po najechaniu */
+}
+
+.button:hover {
+    background-color: #0077a5; /* Jaśniejszy kolor po najechaniu */
+}
+</style>
 <body>
-<h1>Lista produktów</h1>
-<a href="/products/create">Dodaj produkt</a>
+<h1>Lista książek</h1>
+<a href="/books/create" class="button">Dodaj książkę</a>
 <table border="1">
     <thead>
     <tr>
-        <th>Nazwa</th>
-        <th>Ilość</th>
-        <th>Cena</th>
+        <th>Tytuł</th>
+        <th>Rok wydania</th>
+        <th>Autor</th>
+        <th>Link</th>
         <th>Akcje</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="product : ${products}">
-        <td th:text="${product.name}"></td>
-        <td th:text="${product.quantity}"></td>
-        <td th:text="${product.price}"></td>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.release_date}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.link}"></td>
         <td>
-            <a th:href="@{/products/update/{id}(id=${product.id})}">Edytuj</a>
-            <a th:href="@{/products/delete/{id}(id=${product.id})}">Usuń</a>
+            <a th:href="@{/books/update/{id}(id=${book.id})}">Edytuj</a>
+            <a th:href="@{/books/delete/{id}(id=${book.id})}">Usuń</a>
         </td>
     </tr>
     </tbody>
 </table>
 </body>
 </html>
+
