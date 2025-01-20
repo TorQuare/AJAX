@@ -80,7 +80,7 @@ a:hover {
         <td th:text="${book.title}"></td>
         <td th:text="${book.number}"></td>
         <td th:text="${book.author}"></td>
-        <td th:text="${book.link}"></td>
+        <td><a th:href="${book.link}" th:text="${book.link}"></a></td>
         <td>
             <a th:href="@{/books/update/{id}(id=${book.id})}">Edytuj</a>
             <a th:href="@{/books/delete/{id}(id=${book.id})}">Usuń</a>
