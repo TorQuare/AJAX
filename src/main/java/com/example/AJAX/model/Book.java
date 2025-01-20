@@ -21,7 +21,7 @@ public class Book {
     private String title;
 
     @Column(nullable = false)
-    private Date release_date;
+    private int release_date;
 
     @Column(nullable = false)
     private String author;
@@ -46,11 +46,11 @@ public class Book {
         this.title = title;
     }
 
-    public Date getReleaseDate() {
+    public int getReleaseDate() {
         return release_date;
     }
 
-    public void setReleaseDate(Date release_date) {
+    public void setReleaseDate(int release_date) {
         this.release_date = release_date;
     }
 
